@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Carte Postale : Medium de Transmission</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <script src="./js/main.js"></script>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#home">HOME</a></li>
+        <li class="nav-item"><a href="#expo-virtuel">EXPLORE</a></li>
+        <li class="nav-item"><a href="#gallery">GALLERY</a></li>
+      </ul>
+      <div class="hidden-menu" id="hiddenMenu">
+        <ul class="menu-list">
+          <li class="menu-item"><a href="#home">Home</a></li>
+          <li class="menu-item"><a href="#expo-virtuel">Explore</a></li>
+          <li class="menu-item"><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </nav>
+    <header id= "home" class="header-container">
+      <img
+        src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749665/media/images/epbzbhcxcl1qa9uxrbhp.png"
+        alt="Illustration d'une main écrivant une carte postale"
+        class="header-image"
+      />
+      <div class="header-text">
+        <h1 class="header-title">Cardience</h1>
+        <p class="header-subtitle">
+          Un medium de transmission des voix silencieuses
+        </p>
+        <div class="header-btns">
+          <a href="#expo-virtuel" class="explore-btn">Explorez</a>
+          <a href="#participer" class="participe-btn">Participez</a>
+        </div>
+      </div>
+    </header>
+    <!-- <--Timeline-->
+    <main>
+      <!-- Premiere partie -->
+      <section class="intro-section">
+        <div class="text-section">
+          <p>
+            "Un voyage entre le passé et le présent,<br />
+            raconté à travers les mots et les images."
+          </p>
+        </div>
+      </section>
+      <!-- Deuxieme partie -->
+      <section class="second-section">
+        <div class="second-intro">
+          <h2 id="explore">
+            Petite Histoire <br /><span class="text">de la Carte Postale</span>
+          </h2>
+          <div class="container">
+            <div class="content">
+              <div class="left-side">
+                <div class="image-stack">
+                  <!-- <img
+                    src="./images/1889.WEBP"
+                    alt="Machine historique"
+                    class="historic-image"
+                  />
+                  <img
+                    src="./images/1889.WEBP"
+                    alt="Machine historique"
+                    class="historic-image"
+                  />
+                  <img
+                    src="./images/1889.WEBP"
+                    alt="Machine historique"
+                    class="historic-image"
+                  /> -->
+                  <img
+                    src="./images/1889.WEBP"
+                    alt="Machine historique"
+                    class="historic-image"
+                  />
+                </div>
+              </div>
+              <div class="right-side">
+                <p class="year-numbers"></p>
+                <p class="title"></p>
+                <p class="description"></p>
+                <!-- <a href="#" class="btn">Lire l'histoire</a> -->
+              </div>
+            </div>
+            <!-- <div class="scroll-indicator">↑<br />↓</div> -->
+          </div>
+          <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-numbers">
+              <span class="start-number">1870</span>
+              <span class="end-number">1975</span>
+            </div>
+            <div class="navigation-circles">
+              <span class="circle" data-year="1870-1891">1891</span>
+              <span class="circle" data-year="1891-1900">1900</span>
+              <span class="circle" data-year="1911-1930">1930</span>
+              <span class="circle" data-year="1918-1975">1918</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Quatrieme partie -->
+      <section class="split-section">
+        <div class="text-image-split">
+          <div class="text-split">
+            <p>“Dans chaque lettre, une vie.</p>
+            <p>Dans chaque de carte postale, une histoire à ne pas oublier.”</p>
+          </div>
+          <div class="image-split"></div>
+        </div>
+      </section>
+
+      <!-- Troisieme partie -->
+      <section id="gallery" class="third-section">
+        <div class="gallery">
+          <div class="card">
+            <h2>Cartes postales en temps de guerre <a href="#">→</a></h2>
+            <hr class="separator" />
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749640/media/images/xd6epl6anxelauhqwcve.jpg" alt="Image" />
+            <p>
+              Accessible à tous, la carte postale devient un moyen direct et
+              personnel de communication. Les cartes postales offrent une
+              archive visuelle unique, immortalisant des lieux et des moments
+              parfois disparus
+            </p>
+          </div>
+          <div class="card">
+            <h2>La carte postale coloniale <a href="#">→</a></h2>
+            <hr class="separator" />
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749648/media/images/zfi2mnt8lnycsgnk5zry.jpg" alt="Image" />
+            <p>
+              Durant les périodes de guerre et de colonisation, les cartes
+              postales deviennent des outils de propagande, des témoignages de
+              souffrances, ou encore des objets de mémoire. Leur dimension
+              graphique et leur symbolisme prennent alors une importance
+              capitale.
+            </p>
+          </div>
+          <div class="card">
+            <h2>"Head Above Water" <a href="#">→</a></h2>
+            <hr class="separator" />
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749658/media/images/yooyxf6wiba954ajx8kl.png" alt="Image" />
+            <p>
+              Barthélémy Toguo, artiste camerounais, explore dans sa série
+              "Head Above Water" les tensions entre les individus et les forces
+              socio-politiques globales à travers des cartes postales
+              réinventées. Ses œuvres, imprégnées de symbolisme et d’émotion,
+              proposent une nouvelle lecture de ce médium, en mettant l’accent
+              sur l’image comme outil de rébellion et de résilience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="expo-virtuel" class="expo-section">
+        <div class="expo-container">
+          <div class="expo-left">
+            <div class="expo-title">
+              <h1>EXPOSITION<br />VIRTUEL</h1>
+              <div class="play-button">
+                <a href="expo.html">
+                  <span>&#9654;</span>
+                  <!-- Icône de lecture -->
+                </a>
+              </div>
+            </div>
+            <img
+              src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749639/media/images/rwdmaqkcmffhu7capa2g.png"
+              alt="Exposition Virtuelle"
+              class="expo-image"
+            />
+          </div>
+          <div class="expo-right">
+            <div class="expo-links">
+              <a href="#" class="expo-link">
+                <span>Cartes postales en temps de guerre</span>
+                <span class="arrow">&#8594;</span>
+              </a>
+              <a href="#" class="expo-link">
+                <span>La carte postale coloniale : Un imaginaire imposé</span>
+                <span class="arrow">&#8594;</span>
+              </a>
+              <a href="#" class="expo-link">
+                <span>Barthélémy Toguo, "Head Above Water"</span>
+                <span class="arrow">&#8594;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="participer" class="participer-section">
+        <div class="container-participer">
+          <h1 class="title-participer">Ajoutez votre voix à l’histoire</h1>
+          <p class="description-participer">
+            Écrivez un message sur une carte postale pour partager votre
+            histoire, vos pensées ou vos espoirs.
+          </p>
+          <div class="postcard-container">
+            <form id="postcardForm" class="postcard-form">
+              <div class="form-columns">
+                <!-- Colonne gauche : Message -->
+                <div class="left-column">
+                  <h3>THIS SPACE FOR WRITING MESSAGES.</h3>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="message-textarea"
+                    placeholder="Écrivez ici votre message..."
+                    maxlength="250"
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- Ligne de séparation -->
+                <div class="separator"></div>
+
+                <!-- Colonne droite : Adresse -->
+                <div class="right-column">
+                  <h3>POSTCARD</h3>
+                  <p class="instructions">THIS SPACE FOR ADDRESS ONLY.</p>
+
+                  <div class="address-lines">
+                    <input
+                      type="text"
+                      name="name"
+                      class="address-input"
+                      placeholder="Nom complet"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="street"
+                      class="address-input"
+                      placeholder="Rue et numéro"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="city"
+                      class="address-input"
+                      placeholder="Ville"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="postal-code"
+                      class="address-input"
+                      placeholder="Code postal"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bouton de soumission -->
+              <div class="button-container">
+                <button type="submit" class="submit-btn">
+                  Envoyer votre message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Tous droits réservés &copy; 2022 Carte Postale</p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>

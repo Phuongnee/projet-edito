@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exposition Virtuelle</title>
+    <link rel="stylesheet" href="./css/styles1.css" />
+  </head>
+  <body>
+    <script src="./js/expo.js" defer></script>
+    <header>
+      <div class="header-container">
+        <!-- Văn bản giới thiệu -->
+        <div class="intro-text-header">
+          <p id="intro-text">
+            Les cartes postales égarées renferment des récits inédits.
+            <br />
+            Ouvrez votre boîte de réception pour les découvrir …
+          </p>
+        </div>
+        <!-- Hộp thư và bưu thiếp -->
+        <div class="mailbox-container">
+          <!-- Hộp thư xuất hiện với ánh sáng -->
+          <div class="mailbox">
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749641/media/images/mailbox.png" alt="Hộp thư cũ" id="mailbox-img" />
+          </div>
+        </div>
+
+        <!-- Bưu thiếp (ẩn ban đầu) -->
+        <div class="postcards">
+          <div class="postcard" id="card1" onclick="goToStory(1)">
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749640/media/images/xd6epl6anxelauhqwcve.jpg" alt="Bưu thiếp 1916" />
+            <div class="tooltip">Cartes postales en temps de guerre</div>
+          </div>
+          <div class="postcard" id="card2" onclick="goToStory(2)">
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749635/media/images/j5589ce0rofpovqeclqw.jpg" alt="Bưu thiếp 1931" />
+            <div class="tooltip">La carte postale coloniale : Un imaginaire imposé</div>
+          </div>
+          <div class="postcard" id="card3" onclick="goToStory(3)">
+            <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749658/media/images/yooyxf6wiba954ajx8kl.png" alt="Bưu thiếp 2023" />
+            <div class="tooltip">Barthélémy Toguo, "Head Above Water"</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Âm thanh -->
+    <audio id="openSound" src="./audio/openbox.flac"></audio>
+    <audio id="hoverSound" src="./audio/paperfalling.wav"></audio>
+
+    <!-- Section Introduction -->
+    <section class="section-intro">
+      <div class="image-container">
+        <img
+          src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749657/media/images/mjhrnvebqcsdpb4uu2x0.jpg"
+          alt="Carte Postale"
+          class="carte-postale"
+        />
+        <img
+          src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749651/media/images/gzndholfqpfqywslgnxw.svg"
+          alt="Introduction"
+          class="image-intro"
+        />
+      </div>
+    </section>
+
+    <!-- Section Exposition Interactive -->
+    <section class="expo-container hidden">
+      <div class="expo-gallery">
+        <div class="expo-item">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749650/media/images/d7cnp4rlyzdt2vh9wywb.jpg"
+            alt="Exposition 1"
+            class="expo-image hidden"
+          />
+          <div class="expo-text hidden">
+            <p>
+              La carte postale, apparue au milieu du XIXe siècle, est rapidement
+              devenue un moyen de communication populaire. Son faible coût,
+              combiné à l’essor des services postaux, a permis à ces petits
+              morceaux de carton d’atteindre les quatre coins du monde.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Troisième section avec séparation en deux colonnes -->
+    <section class="third-section">
+      <div class="third-container">
+        <!-- Colonne gauche : Texte -->
+        <div class="third-text-container">
+          <div class="third-text hidden">
+            <h2>Évolution de la Carte Postale</h2>
+            <p>
+              Depuis le XIXe siècle, la carte postale est devenue un témoin
+              historique et artistique. Son évolution graphique et technique a
+              transformé sa portée et son usage dans la société.
+            </p>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Image en pleine hauteur -->
+        <div class="third-image-container">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749643/media/images/waribjm8askmfw0bfzvd.webp"
+            alt="Évolution de la carte postale"
+            class="third-image"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="expo-container hidden">
+      <div class="expo-gallery">
+        <div class="expo-item">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749653/media/images/r0zmsgllomdto7mqqjfb.jpg"
+            alt="Exposition 2"
+            class="expo-image hidden"
+          />
+          <div class="expo-text hidden">
+            <p>
+              Accessible à tous, la carte postale devient un moyen direct et
+              personnel de communication. Les cartes postales offrent une
+              archive visuelle unique, immortalisant des lieux et des moments
+              parfois disparus
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="expo-container3 hidden">
+      <div class="expo-gallery3">
+        <div class="expo-item3">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749667/media/images/fc1ddklf180qy5dr00mv.jpg"
+            alt="Exposition 3"
+            class="expo-image3 hidden"
+          />
+          <div class="expo-text3 hidden">
+            <p>
+              Durant cette période, les cartes postales se diversifient avec des
+              thèmes variés : humour, art, publicité, etc. Elles reflètent les
+              tendances sociales et culturelles de l'époque, servant à la fois
+              de moyen de communication et d'objet de collection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="expo-container hidden">
+      <div class="expo-gallery">
+        <div class="expo-item">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749662/media/images/r26tkzazmshi4eqper4r.jpg"
+            alt="Exposition 2"
+            class="expo-image hidden"
+          />
+          <div class="expo-text hidden">
+            <p>
+              Avec l'avènement des technologies numériques, l'usage des cartes
+              postales décline. Cependant, elles connaissent un renouveau grâce
+              à leur aspect nostalgique et authentique, appréciées des
+              collectionneurs et utilisées dans des contextes artistiques ou
+              touristiques. Ainsi, la carte postale demeure un reflet des
+              évolutions sociétales, technologiques et artistiques, conservant
+              une place particulière dans le patrimoine culturel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Troisième section avec séparation en deux colonnes -->
+    <section class="third-section" id="guerre-section">
+      <div class="third-container">
+        <!-- Colonne gauche : Texte -->
+        <div class="third-text-container">
+          <div class="third-text hidden">
+            <h2>Cartes postales en temps de guerre</h2>
+            <p>
+              Durant les périodes de guerre et de colonisation, les cartes
+              postales deviennent des outils de propagande, des témoignages de
+              souffrances, ou encore des objets de mémoire. Leur dimension
+              graphique et leur symbolisme prennent alors une importance
+              capitale.
+            </p>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Image en pleine hauteur -->
+        <div class="third-image-container">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749634/media/images/djrsah7avifpcpdeisu2.jpg"
+            alt="Évolution de la carte postale"
+            class="third-image"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- Khu vực câu chuyện 1 -->
+    <section id="story1" class="story-section">
+      <h2>Lettre de Lucien Pinet a sa femme Madeleine</h2>
+
+      <!-- Bức thư được viết lại -->
+      <div class="letter-container">
+        <img
+          src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749655/media/images/svjdse9tfkljpt4owlvp.png"
+          alt="Bức thư"
+          class="letter-image"
+        />
+        <p class="letter-text" id="letter-text">
+          Petite femme chérie C’est par une belle journée que je viens te dire
+          pauvre Lilie ...
+        </p>
+      </div>
+
+      <!-- Nút xem bản gốc -->
+      <button
+        id="view-original-btn"
+        class="view-original-btn"
+        onclick="showOriginalLetter()"
+      >
+        Source
+      </button>
+
+      <!-- Bản gốc của bức thư -->
+      <div class="original-letter" id="original-letter">
+        <img
+          src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749647/media/images/ry2hehfhor5kkbxiysrr.jpg"
+          alt="Bản gốc bức thư"
+          class="original-letter-image"
+        />
+        <button class="close-btn" onclick="hideOriginalLetter()">Fermer</button>
+      </div>
+      <audio id="writingSound" src="./audio/writing.wav"></audio>
+    </section>
+
+    <section class="background-section">
+      <!-- Image de fond -->
+      <div class="background-image"></div>
+
+      <!-- Overlay noir semi-transparent -->
+      <div class="background-overlay"></div>
+
+      <!-- Conteneur des images superposées -->
+      <div class="image-container">
+        <div class="frame">
+          <span class="frame-label"></span>
+          <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749659/media/images/ju8a3qunmnzneteawk9n.jpg" alt="Illustration 1" />
+        </div>
+        <div class="frame">
+          <span class="frame-label"></span>
+          <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749640/media/images/xd6epl6anxelauhqwcve.jpg" alt="Illustration 2" />
+        </div>
+        <div class="frame">
+          <span class="frame-label"></span>
+          <img src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749656/media/images/h9yfbgtzzlebnjxkepam.jpg" alt="Illustration 3" />
+        </div>
+      </div>
+      <!-- Boutons de scroll -->
+      <button class="scroll-button left-button" onclick="scrollPage(-1)">
+        ▲
+      </button>
+      <button class="scroll-button right-button" onclick="scrollPage(1)">
+        ▼
+      </button>
+    </section>
+    <section class="expo-container hidden">
+      <div class="expo-gallery">
+        <div class="expo-item">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749667/media/images/bzhl65pxsmtdyt1agwuq.jpg"
+            alt="Exposition 5"
+            class="expo-image hidden"
+          />
+          <div class="expo-text hidden">
+            <p>
+              Souvent, les cartes postales présentent des images glorifiant les
+              soldats, renforçant l’héroïsme national. Elles deviennent des
+              supports visuels de propagande. Les soldats, séparés de leurs
+              familles, utilisent les cartes pour envoyer des messages d’espoir
+              ou des témoignages d’horreur, parfois illustrés de manière
+              poignante.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="third-section" id="coloniale-section">
+      <div class="third-container">
+        <!-- Colonne gauche : Texte -->
+        <div class="third-text-container">
+          <div class="third-text hidden">
+            <h2>La carte postale coloniale : Un imaginaire imposé</h2>
+            <p>
+              Durant les périodes de colonisation, les cartes postales
+              illustrent des scènes idéalisées ou caricaturales des territoires
+              colonisés, souvent créées pour plaire à l’imaginaire occidental. 
+            </p>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Image en pleine hauteur -->
+        <div class="third-image-container">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749666/media/images/lvp7vttgwi2zzxkaod9l.jpg"
+            alt="Évolution de la carte postale"
+            class="third-image"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="gate-section" id="gateSection">
+      <div class="gate-container">
+        <div class="gate left"></div>
+        <div class="container-sign">
+          <div class="sign" id="sign">
+            Bienvenue à l'Exposition Coloniale Virtuelle. En franchissant cette
+            porte majestueuse, vous êtes invité à explorer la richesse et la
+            diversité des cultures qui ont marqué cette époque historique.
+            Plongez dans un voyage immersif à travers les pavillons
+            emblématiques, les artefacts authentiques et les récits captivants
+            des colonies françaises. Laissez-vous transporter dans le temps et
+            l'espace, et découvrez les trésors cachés de notre patrimoine
+            commun.
+          </div>
+        </div>
+        <div class="gate right"></div>
+      </div>
+      <audio id="backgroundAudio" loop>
+        <source src="./audio/crownd.wav" type="audio/mp3" />
+      </audio>
+    </section>
+
+    <section class="postcard-coloniale-section">
+      <div class="postcard-coloniale-container">
+        <div class="postcard-coloniale" id="postcard">
+          <div class="postcard-front"></div>
+          <div class="postcard-back" id="postcardMessage">
+            <p class="postcard-message">
+              "Salutations de Paris ! Je viens d'entrer par la porte principale
+              de l'Exposition Coloniale. C'est un endroit magnifique ! Ici, vous
+              pouvez voyager à travers tout l'empire sans quitter Paris. J'ai
+              hâte d'explorer ces terres lointaines !"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section de la carte interactive -->
+    <section class="map-expo-section">
+      <h1>Choisissez la région que vous souhaitez explorer</h1>
+      <div class="map-container">
+        <div
+          class="map-region"
+          id="indochina"
+          style="bottom: 50px; left: 400px"
+        >
+          Indochine
+        </div>
+        <div
+          class="map-region"
+          id="west-africa"
+          style="top: 550px; left: 550px"
+        >
+          Afrique de l'Ouest
+        </div>
+        <div
+          class="map-region"
+          id="north-africa"
+          style="bottom: 80px; left: 700px"
+        >
+          Afrique du Nord
+        </div>
+        <div class="map-region" id="madagascar" style="top: 500px; left: 400px">
+          Madagascar
+        </div>
+        <div
+          class="map-region"
+          id="northeast-africa"
+          style="top: 500px; left: 700px"
+        >
+          Afrique du Nord-Est
+        </div>
+
+        <div class="map-region" id="canaque" style="top: 400px; left: 600px">
+          Canaque
+        </div>
+        <div class="tool-tip" id="tooltip"></div>
+      </div>
+    </section>
+
+    <section class="section" id="section-indochina">
+      <h2>Pavillon de l'Indochine</h2>
+      <p>
+        Lors de l'Exposition coloniale internationale de 1907 à Paris, le
+        pavillon de l'Indochine se distinguait par une reproduction
+        impressionnante du temple d'Angkor Vat, emblème majestueux de
+        l'architecture khmère. Ce pavillon offrait aux visiteurs une immersion
+        dans les richesses culturelles de l'Indochine française, englobant le
+        Vietnam, le Laos et le Cambodge. Les visiteurs pouvaient y admirer des
+        reproductions de monuments emblématiques, des objets d'art traditionnels
+        et des performances culturelles, illustrant la diversité et la
+        profondeur des traditions indochinoises. Cette présentation visait à
+        mettre en valeur le patrimoine architectural et artistique de la région,
+        tout en soulignant l'importance de l'Indochine au sein de l'Empire
+        colonial français.
+      </p>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749635/media/images/e4bc8tufxpctphert6pt.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749651/media/images/mdprgemf8vbl6zruytta.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749649/media/images/zvn1mywn2pgwljuysa1w.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749644/media/images/femfb561omirptu97ngi.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749648/media/images/u8g3khfwgozvwa5sym9e.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749639/media/images/nlu0063wsgc4nxxjsprx.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749641/media/images/ewhhxyfmdsff3igelsat.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749638/media/images/zweopo7cu7nj0tx7b1im.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749636/media/images/k1qm0arkllndejhbz1if.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749660/media/images/qp2egkllkodo0a88lpj8.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749657/media/images/mz0htviod2qt6rpgzkmm.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749652/media/images/mmjwesdjodrchu37uicf.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749653/media/images/idvopeceis7t17jlgxvi.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749656/media/images/xxcqrlsirbjejqgcksix.jpg')"
+      ></div>
+    </section>
+
+    <section class="section" id="section-canaque">
+      <h2>Pavillon de l'Canaque</h2>
+      <p>
+        Lors de l'Exposition coloniale internationale de 1907 à Paris, le
+        pavillon de la Nouvelle-Calédonie et dépendances mettait en avant les
+        cultures des territoires français du Pacifique Sud, notamment celle des
+        Kanaks. Le pavillon présentait des sculptures traditionnelles kanakes,
+        des objets artisanaux et des éléments architecturaux typiques, offrant
+        aux visiteurs un aperçu de l'art et des traditions de ces populations.
+        Cependant, en marge de l'exposition officielle, une centaine de Kanaks
+        furent exhibés au Jardin d'acclimatation dans des conditions
+        dégradantes, illustrant les préjugés et le racisme de l'époque.
+      </p>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749670/media/images/nolk1fmvibgqzwlp68et.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749668/media/images/prcrvdi7fga7nbjpifau.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749665/media/images/y4pe138jz7reg68j8ewd.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749663/media/images/hg50dtgzvkugsa0nkihs.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749661/media/images/uerkhanq5z1hb0qeloki.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749662/media/images/rwbtsercs4p6eldnpg7j.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749666/media/images/fkvabcds5vb9c3ubg5hq.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749655/media/images/xgzqfsbtdhhlw68d052e.jpg')"
+      ></div>
+    </section>
+
+    <section class="section" id="section-north-africa">
+      <h2>Pavillon de l'Afrique du Nord</h2>
+      <p>
+        Lors de l'Exposition coloniale internationale de 1907 à Paris, le
+        pavillon de l'Afrique du Nord mettait en avant les richesses culturelles
+        et historiques des territoires nord-africains sous administration
+        française, notamment l'Algérie, le Maroc et la Tunisie. L'architecture
+        du pavillon s'inspirait des styles mauresques et arabo-andalous, avec
+        des arcs en fer à cheval, des mosaïques colorées et des jardins
+        luxuriants, évoquant les palais et médinas emblématiques de la région. À
+        l'intérieur, les visiteurs pouvaient admirer des expositions d'artisanat
+        traditionnel, telles que des tapis berbères, des poteries, des bijoux en
+        argent et des textiles brodés. Des représentations de musique andalouse
+        et de danse orientale étaient également organisées, offrant une
+        immersion sensorielle dans la culture nord-africaine. Ce pavillon visait
+        à illustrer la diversité et la richesse des traditions de l'Afrique du
+        Nord, tout en soulignant les liens entre ces territoires et la France
+        métropolitaine.
+      </p>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749646/media/images/htzykao1mbrkkv7krobi.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749646/media/images/ezziuafjv2wkryiwxqsw.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749643/media/images/uckftz5tdeocrehu7ntl.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749643/media/images/fy7pfg3pq9tdhm9f8bih.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749637/media/images/mgnqpz2snohxh5auqbt5.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749637/media/images/ggckbf5gjxvipyeccr5p.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749640/media/images/fuvtwfuwd4ssgizh8nrl.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749640/media/images/lahbfrvomglhxukas2po.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749659/media/images/wknmku9ye9xdl2g9odmf.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749660/media/images/abdyi1hzldx9lqdo1km3.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749650/media/images/wvhr4zcd9upkpoamgtvv.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749650/media/images/hojccjvqtjrdcsdlknrg.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749654/media/images/bqxru0ogi1dlcfht1rqi.jpg')"
+      ></div>
+    </section>
+
+    <section class="section" id="section-west-africa">
+      <h2>Pavillon de l'Afrique occidentale française</h2>
+      <p>
+        Lors de l'Exposition coloniale internationale de 1907 à Paris, le
+        pavillon de l'Afrique occidentale française (AOF) se distinguait par son
+        architecture inspirée des constructions traditionnelles sahéliennes,
+        notamment celles du peuple soudanais. Le bâtiment, avec ses façades en
+        terre crue et ses tours élancées, évoquait les célèbres mosquées en
+        banco de Djenné et de Tombouctou. À l'intérieur, les visiteurs pouvaient
+        découvrir une riche collection d'objets artisanaux, tels que des
+        textiles teints à l'indigo, des sculptures en bois, des bijoux en or et
+        en argent, ainsi que des instruments de musique traditionnels. Des
+        expositions mettaient en lumière la diversité culturelle des différentes
+        ethnies de l'AOF, incluant les Peuls, les Mandingues et les Wolofs. Des
+        performances de danses et de musiques traditionnelles étaient également
+        organisées, offrant une immersion vivante dans le patrimoine culturel de
+        l'Afrique de l'Ouest. Ce pavillon visait à illustrer la richesse et la
+        diversité des territoires de l'AOF, tout en soulignant leur intégration
+        au sein de l'Empire colonial français.
+      </p>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749647/media/images/btgzhrkhmivllkuf0gfj.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749741/media/images/s43fgkvizsni8cfgozaa.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749633/media/images/npsjivxk11huvpqbdwjz.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749633/media/images/bzbexlamlgtp0qoqzzco.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749634/media/images/nt2gajo2ekcmzartubl4.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749635/media/images/j5589ce0rofpovqeclqw.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749636/media/images/lwqyl6dj4sr3wjloc2vl.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749663/media/images/v1lwuivykff89yboipgu.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749665/media/images/nsb9feasycwa0qykhsg2.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749633/media/images/hs7zspwohivwn0nr0qpr.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749634/media/images/wizyyllnb1hiasauvqt2.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749633/media/images/pvet2hdnvjukduraivjo.jpg')"
+      ></div>
+    </section>
+
+    <section class="section" id="section-madagascar">
+      <h2>Pavillon de Madagascar</h2>
+      <p>
+        Lors de l'Exposition coloniale internationale de 1907 à Paris, le
+        pavillon de Madagascar se distinguait par son architecture unique,
+        reflétant les traditions malgaches. Les visiteurs pouvaient y découvrir
+        une variété d'objets artisanaux, des textiles colorés, des sculptures en
+        bois et des expositions illustrant la richesse culturelle et naturelle
+        de l'île. Des représentations musicales et des danses traditionnelles
+        étaient également organisées, offrant une immersion complète dans la
+        culture malgache. Ce pavillon mettait en lumière l'importance de
+        Madagascar au sein de l'Empire colonial français et soulignait la
+        diversité de ses ressources et de ses traditions.
+      </p>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749664/media/images/sm6hcf3ow4hgsiawqclk.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749645/media/images/nhfmntk8zlwbpwiezlmg.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749642/media/images/ihcl8cqdw44dacbemjkf.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749643/media/images/jfhu0nthwvhzq2niwhr3.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749637/media/images/fyivhlfcg5fb8x9pyguf.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749637/media/images/bminlocjwx8st2fbv6nj.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749639/media/images/d7vcb3lyzbwjmou8myva.jpg')"
+      ></div>
+    </section>
+
+    <section class="section" id="section-northeast-africa">
+      <h2>Pavillon de l'Afrique du Nord-Est</h2>
+      <p>
+        Lors de l'Exposition coloniale internationale de 1907 à Paris, le
+        pavillon de l'Afrique du Nord-Est mettait en lumière les richesses
+        culturelles et historiques de cette région, englobant des territoires
+        tels que l'Égypte, le Soudan et la Corne de l'Afrique. Les visiteurs
+        pouvaient y admirer des reproductions de monuments emblématiques, des
+        artefacts anciens et des expositions illustrant la diversité des
+        traditions locales. Des performances artistiques et des présentations
+        culturelles offraient une immersion dans le patrimoine vivant de ces
+        territoires, soulignant leur importance au sein de l'Empire colonial
+        français. Ce pavillon visait à présenter la complexité et la profondeur
+        des civilisations de l'Afrique du Nord-Est, tout en renforçant les liens
+        entre ces régions et la métropole.
+      </p>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749656/media/images/kghe0ve26dbsitmjk217.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749642/media/images/mprm0rfs8upuggzzxhcs.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749644/media/images/ge9wjubgjbwnskfee4e1.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749647/media/images/yopqv6fnvmmv6quuwdkf.jpg')"
+      ></div>
+      <div
+        class="postcard-detail-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749638/media/images/tbvj9xuojtdh5fy6uzl7.jpg')"
+      ></div>
+      <div
+        class="postcard-detai-verticale"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749636/media/images/tvpnjbw7dhxkxmxl8fep.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749639/media/images/o2tuf0ei8ctptlqoeg1v.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749641/media/images/gclwza4tgrlemhwjmj0d.jpg')"
+      ></div>
+      <div
+        class="postcard-detail"
+        style="background-image: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749658/media/images/trtlcihxfu1farxnsf89.jpg')"
+      ></div>
+    </section>
+
+    <section class="expo-container3 hidden">
+      <div class="expo-gallery3">
+        <div class="expo-item3">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749648/media/images/zfi2mnt8lnycsgnk5zry.jpg"
+            alt="Exposition 3"
+            class="expo-image3 hidden"
+          />
+          <div class="expo-text4 hidden">
+            <p>
+              Durant les périodes de colonisation, les cartes postales
+              illustrent des scènes idéalisées ou caricaturales des territoires
+              colonisés, souvent créées pour plaire à l’imaginaire
+              occidental. Inspirées par des courants artistiques comme
+              l’orientalisme, ces cartes postales renforçaient une vision
+              biaisée et romantisée des sociétés colonisées. Les femmes
+              devenaient des symboles d’une supposée "innocence primitive" ou
+              d’une sensualité exotique. Certaines cartes postales montrent des
+              femmes berbères, des danseuses orientales ou des figures
+              africaines, souvent dans des poses statiques et artificielles. Ces
+              images véhiculent un message implicite de supériorité culturelle
+              et renforcent les stéréotypes. Ces cartes participent à la
+              justification graphique de la colonisation, en montrant une
+              domination supposée "civilisatrice".
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="third-section" id="toguo-section">
+      <div class="third-container">
+        <!-- Colonne gauche : Texte -->
+        <div class="third-text-container">
+          <div class="third-text hidden">
+            <h2>Barthélémy Toguo, "Head Above Water"</h2>
+            <p>
+               Barthélémy Toguo, artiste camerounais, explore dans sa série
+              "Head Above Water" les tensions entre les individus et les forces
+              socio-politiques globales à travers des cartes postales
+              réinventées. Ses œuvres, imprégnées de symbolisme et d’émotion,
+              proposent une nouvelle lecture de ce médium, en mettant l’accent
+              sur l’image comme outil de rébellion et de résilience.
+            </p>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Image en pleine hauteur -->
+        <div class="third-image-container">
+          <img
+            src="https://res.cloudinary.com/da9k32mdb/image/upload/v1738749648/media/images/dksgasmjieyguxc6m4nw.webp"
+            alt="Évolution de la carte postale"
+            class="third-image"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="background-section-toguo">
+      <!-- Image de fond avec overlay noir -->
+      <div class="background-image"></div>
+      <div class="background-overlay"></div>
+
+      <!-- Conteneur des images de Toguo -->
+      <div class="toguo-container"></div>
+    </section>
+
+    <section class="enveloppe-container">
+      <!-- Les enveloppes seront générées dynamiquement avec JavaScript -->
+    </section>
+
+    <!-- Fenêtre modale pour afficher une carte postale aléatoire -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <img id="modal-image" src="" alt="Carte Postale" />
+      </div>
+    </div>
+
+    <section class="final-section">
+      <div class="background-overlay"></div>
+      <!-- Contenu principal -->
+      <div class="final-content">
+        <h2 class="final-title">Merci d'avoir exploré l'exposition</h2>
+        <p class="final-text">
+          Cette exposition virtuelle propose une immersion dans l’histoire
+          visuelle de la carte postale, tout en interrogeant sa pertinence en
+          tant qu’outil artistique et politique. De son rôle dans la propagande
+          et la colonisation, à sa réinvention contemporaine par Barthélémy
+          Toguo, la carte postale révèle sa capacité à transcender les époques,
+          offrant un support graphique pour comprendre et questionner les
+          tensions humaines. Que ce soit par la mémoire collective ou par une
+          réinterprétation artistique, la carte postale reste un puissant outil
+          visuel, riche en significations. À travers cette exposition, nous
+          espérons vous inviter à porter un regard neuf sur cet objet du
+          quotidien, porteur de récits souvent méconnus.
+        </p>
+
+        <!-- Bouton d'action -->
+        <a href="index.html#participer" class="final-button">Écrivez un message</a>
+
+      </div>
+    </section>
+  </body>
+</html>

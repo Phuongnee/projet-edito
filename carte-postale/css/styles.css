@@ -1,0 +1,1049 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chonburi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pompiere&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://use.typekit.net/qfm7jsd.css");
+@import url("https://use.typekit.net/qfm7jsd.css");
+@import url("https://use.typekit.net/qfm7jsd.css"); /*cubano,lft-etica-mono,meno-banner*/
+
+@font-face {
+  font-family: "Benedict Regular";
+  src: url("../fonts/Benedict Regular.otf") format("truetype");
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+  color: hsl(0, 0%, 0%);
+  transition: background-color 0.5s ease;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+  background-color: #e9e5d9;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://assets.iceable.com/img/noise-transparent.png);
+  opacity: 0.5; /* Ajustez l'opacité selon vos besoins */
+  pointer-events: none; /* Empêche les interactions avec le pseudo-élément */
+  z-index: 9999; /* Assure que le grain est au-dessus de tout le contenu */
+}
+
+.header-container {
+  position: relative;
+  text-align: center;
+  display: flex; /* Utilise Flexbox pour centrer le contenu */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  width: 100%;
+  height: auto; /* Hauteur automatique */
+  overflow: hidden;
+  flex: 1;
+  border-radius: 8px;
+}
+
+.header-image {
+  display: flex; /* Utilise Flexbox pour centrer le contenu */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+  object-fit: cover; /* Garde les proportions de l'image */
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+  filter: grayscale(40%) blur(3px);
+}
+
+.header-text {
+  position: absolute;
+  top: 50%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Ajuste la position pour centrer */
+  text-align: center;
+  color: white;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.header-title {
+  font-size: 14rem;
+  margin: 0; /* Supprime toutes les marges */
+  padding: 0; /* Supprime tous les espacements internes */
+  font-family: "meno-banner-condensed", serif;
+  font-style: normal;
+  font-weight: 800;
+  color: #e9e5da;
+  text-decoration: inherit; /* Supprime les soulignements */
+  letter-spacing: -0.03em; /* Ajuste l'espacement entre les lettres */
+  line-height: 1.3em; /* Ajuste l'espacement entre les lignes */
+  text-transform: none;
+}
+
+.header-subtitle {
+  font-size: 1.4rem;
+  margin: 0; /* Supprime toutes les marges */
+  padding: 0; /* Supprime tous les espacements internes */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: "lft-etica-mono", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  color: #e9e5da;
+  text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 2.5rem;
+  }
+  .header-subtitle {
+    font-size: 1.4rem;
+  }
+}
+.header-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.participe-btn {
+  display: inline-block;
+  border: 1px solid #e9e5da;
+  text-decoration: none;
+  color: #e9e5da;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: transparent;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+}
+.explore-btn {
+  display: inline-block;
+  border: 1px solid #e9e5da;
+  text-decoration: none;
+  color: #2e302a;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: #e9e5da;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.navbar {
+  width: 100%;
+  /* background-color: #2E302A; */
+  position: fixed;
+  border-bottom: 1px solid #e9e5d9;
+  border-top: 1px solid #e9e5d9;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: left;
+  justify-content: space-between; /* Espace entre le logo et les éléments de la navbar */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.bg-dark {
+  background-color: #2e302a;
+}
+.navbar.bg-light {
+  background-color: transparent; /* Transparence */
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  flex-grow: 1; /* Permet à la liste de prendre tout l'espace disponible */
+}
+
+.nav-item {
+  margin-left: 20px; /* Espace entre les éléments de la navbar */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #e9e5d9;
+  font-size: 1rem;
+  backface-visibility: hidden;
+  padding: 15px 0;
+  display: block;
+  font-family: "lft-etica-mono", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 0em;
+  font-style: inherit;
+}
+
+.nav-item a:hover {
+  color: #6d4f3e;
+}
+
+/* Styles pour le menu caché */
+.hidden-menu {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Cache le menu à droite */
+  width: 250px;
+  height: 100%;
+  background-color: rgba(
+    38,
+    35,
+    23,
+    0.5
+  ); /* Couleur de fond avec transparence */
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.menu-item {
+  margin: 20px 0;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #f0e8bb;
+  font-size: 1em;
+  font-weight: 500;
+  display: block;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.menu-item a:hover {
+  color: #262317;
+}
+
+.menu-toggle {
+  background-color: transparent;
+  color: #e9e5d9;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 1001;
+  margin-right: 40px; /* Espace entre le bouton et les éléments de la navbar */
+}
+
+.menu-toggle:hover {
+  color: #6d4f3e;
+}
+/* Styles pour le contenu */
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+.origin-section {
+  color: #262317;
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+}
+
+.origin-intro h2 {
+  font-size: 4rem;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+}
+
+.origin-intro .text {
+  font-size: 5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.origin-intro p {
+  font-size: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.timeline-gallery {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 24px;
+  justify-content: center;
+}
+
+.gallery-container {
+  position: relative;
+}
+
+.gallery-images {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+}
+
+.image-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+  transform: scale(1.05);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  gap: 20px;
+  /* position: relative; */
+}
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: #616c50; /* Couleur de la ligne */
+  transform: translateX(-50%);
+}
+
+.left-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 20px;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* .year-numbers {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+   font-family: "cubano", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #67191f;
+}  */
+
+.title {
+  font-family: "meno-banner", serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 3rem;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
+  text-transform: capitalize;
+}
+.title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px; /* Épaisseur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  position: absolute;
+  bottom: -5px; /* Distance entre le texte et la ligne */
+}
+
+.description {
+  padding-top: 20px;
+  font-size: 14px;
+  line-height: 1.3em;
+  margin-bottom: 20px;
+  font-family: "lft-etica-mono", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 0em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: black;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.second-section {
+  color: #616c50;
+  background-color: #e9e5d9;
+  padding: 40px;
+  margin: 40px;
+}
+
+.second-intro h2 {
+  font-size: 3rem;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.second-intro .text {
+  font-size: 4rem;
+  font-family: "Benedict Regular"; /* Utilisez le nom exact déclaré dans @font-face */
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+}
+.timeline-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 20%; /* Ajustez cette valeur pour raccourcir la ligne */
+  right: 20%;
+  height: 1px;
+  background-color: #616c50;
+  z-index: 0; /* Assure que la ligne est derrière les cercles */
+}
+
+.timeline-numbers {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20%; /* Ajustez cette valeur pour correspondre à la ligne */
+  transform: translateY(-50%);
+  z-index: 1; /* Assure que les numéros sont devant la ligne */
+}
+
+.start-number,
+.end-number {
+  font-size: 3rem;
+  color: #000;
+  font-family: "monto-banner", serif;
+}
+
+.navigation-circles {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Assure que les cercles sont devant la ligne */
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #616c50; /* Bordure des cercles */
+  background-color: #ede8e8; /* Couleur de fond par défaut pour les cercles non sélectionnés */
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, filter 0.3s;
+  display: flex; /* Utilise Flexbox pour centrer le texte */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  text-align: center; /* Centre le texte */
+  font-size: 0.8rem; /* Ajustez la taille du texte selon vos besoins */
+  color: #000; /* Couleur du texte */
+  filter: grayscale(
+    100%
+  ); /* Désaturation complète pour les cercles non sélectionnés */
+  font-family: "meno-banner", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.circle:hover {
+  transform: scale(1.1); /* Agrandissement sur survol */
+}
+
+.circle.active {
+  filter: grayscale(0%); /* Couleur d'origine pour les cercles sélectionnés */
+  background-color: #616c50; /* Couleur de fond pour les cercles actifs */
+  color: #fff; /* Couleur du texte pour les cercles actifs */
+  border: 2px solid #616c50; /* Bordure des cercles actifs */
+}
+/* Ajoutez des images de fond spécifiques à chaque cercle */
+/* .circle[data-year="1870-1891"] {
+  background-image: url("../images/1.WEBP");
+}
+
+.circle[data-year="1891-1900"] {
+  background-image: url("../images/2.png");
+}
+
+.circle[data-year="1911-1930"] {
+  background-image: url("../images/3.png");
+}
+
+.circle[data-year="1918-1975"] {
+  background-image: url("../images/4.png");
+} */
+.container {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  background-color: #e9e5d9;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Assure que les éléments enfants positionnés absolument sont relatifs à ce conteneur */
+}
+
+.image-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(30%);
+}
+
+.historic-image {
+  position: absolute;
+  width: 500px; /* Largeur fixe pour toutes les images */
+  aspect-ratio: 16/9; /* Ratio 1:1 pour garder les images carrées */
+  transition: transform 0.3s;
+  justify-content: center;
+  align-items: center;
+  top: 50%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajuste la position pour centrer l'image */
+  filter: grayscale(40%);
+}
+
+/* .historic-image:nth-child(1) {
+  top: -50px;
+  left: 50px;
+} */
+
+/* .historic-image:nth-child(2) {
+  top: 0;
+  right: 20px;
+}
+
+.historic-image:nth-child(3) {
+  bottom: -20px;
+  left: 0;
+}
+
+.historic-image:nth-child(4) {
+  bottom: 0;
+  right: 40px;
+} */
+
+.historic-image:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* Réduit l'effet de mise à l'échelle et maintient le centrage */
+  z-index: 1;
+}
+
+.third-section {
+  background-color: #e9e5d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.gallery {
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #e9e5d9;
+  margin: 0 auto; /* Centre la galerie horizontalement */
+}
+.card {
+  border: 1px solid #d8d4d4;
+  background-color: #e9e5d9;
+  width: 25%; /* 3 cartes par ligne */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 15px;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card h2 {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  font-weight: 800;
+  color: #2e302a;
+  font-family: "meno-banner-condensed", serif;
+  font-style: normal;
+  text-decoration: inherit;
+  letter-spacing: -0.03em;
+  line-height: 1.3em;
+}
+.separator {
+  border: none;
+  border-top: 1px solid #616c50;
+  margin: 10px 10px; /* Ajustez la marge selon vos besoins */
+}
+.card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  filter: grayscale(20%);
+}
+.card p {
+  font-size: 14px;
+  color: #2e302a;
+  margin-bottom: 15px;
+  font-family: "lft-etica-mono", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+.card a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #616c50;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card a:hover {
+  text-decoration: underline;
+}
+.arrow {
+  font-size: 1.5rem;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Pleine largeur sur petit écran */
+  }
+}
+
+.intro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centre les éléments verticalement */
+  position: relative; /* Nécessaire pour les positionnements absolus */
+  background-color: #e9e5d9;
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+  font-family: "meno-banner-condensed", serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 4em;
+  color: #616c50;
+  text-decoration: inherit; /* Supprime les soulignements */
+  letter-spacing: -0.03em; /* Ajuste l'espacement entre les lettres */
+  line-height: 1.3em; /* Ajuste l'espacement entre les lignes */
+  text-transform: none;
+  border-bottom: #616c50 solid 2px;
+}
+
+.split-section {
+  display: flex;
+  width: 100%;
+  height: 60vh; /* La section occupe toute la hauteur de l'écran */
+}
+
+.text-image-split {
+  display: flex;
+  flex: 1; /* Assure que la section prend toute la largeur */
+  flex-direction: row; /* Aligne le texte à gauche et l'image à droite */
+}
+
+.text-split {
+  flex: 1; /* Occupe 50% de la largeur */
+  background-color: #2e302a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  font-family: "meno-banner-condensed", serif;
+  font-style: normal;
+}
+
+.text-split p {
+  font-size: 2.5rem;
+  text-decoration: inherit; /* Supprime les soulignements */
+  letter-spacing: -0.03em; /* Ajuste l'espacement entre les lettres */
+  line-height: 1.3em; /* Ajuste l'espacement entre les lignes */
+  text-transform: none;
+  margin: 0;
+}
+
+.text-split p:first-child {
+  color: rgba(255, 255, 255, 0.8); /* Texte légèrement transparent */
+}
+
+.image-split {
+  flex: 1; /* Occupe 50% de la largeur */
+  background-image: url("https://res.cloudinary.com/da9k32mdb/image/upload/v1738749667/media/images/vnhs7gjt4ggnhofghxlp.jpg"); /* Remplacez par votre image */
+  background-size: cover; /* L'image couvre toute la section */
+  background-position: center; /* Centre l'image */
+}
+
+@media (max-width: 768px) {
+  .text-image-split {
+    flex-direction: column; /* Empile le texte et l'image sur petit écran */
+  }
+
+  .text-split,
+  .image-split {
+    flex: none;
+    width: 100%; /* Les deux sections prennent toute la largeur */
+    height: 50vh; /* Ajuste la hauteur */
+  }
+}
+
+.expo-section {
+  background-color: #e9e5d9; /* Couleur de fond beige */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+  border-top: 1px solid #616c50;
+}
+
+.expo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  gap: 0px;
+}
+.expo-left {
+  display: flex;
+  flex-direction: column; /* Empile l’image sous le texte et le bouton */
+  align-items: flex-start;
+  gap: 40px; /* Espacement entre les éléments */
+}
+
+.expo-title {
+  display: flex;
+  align-items: center; /* Aligne le texte et le bouton horizontalement */
+  gap: 50px; /* Espace entre le texte et le bouton */
+}
+
+.expo-title h1 {
+  font-family: "meno-banner-condensed", serif;
+  font-style: normal;
+  text-decoration: inherit; /* Supprime les soulignements */
+  letter-spacing: -0.03em; /* Ajuste l'espacement entre les lettres */
+  line-height: 1.3em; /* Ajuste l'espacement entre les lignes */
+  text-transform: none;
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap; /* Empêche le retour à la ligne */
+  color: #2e302a;
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #2e302a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: #2e302a;
+  color: white;
+}
+
+.expo-image {
+  width: 550px; /* Taille de l’image */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.expo-right {
+  flex: 1;
+  margin-left: 100px;
+  justify-content: center;
+}
+
+.expo-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.expo-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: semibold;
+  padding: 15px 0;
+  border-bottom: 1px solid #5b3b1d;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.expo-link:hover {
+  color: #8b5a2b;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  margin-left: 50px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .expo-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .expo-left {
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .expo-image {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .expo-links {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+/* Section principale */
+.participer-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh; /* Prend toute la hauteur de la fenêtre */
+  background-color: #2e302a; /* Couleur de fond */
+  text-align: center;
+  padding-top: 20px;
+  margin: 0;
+}
+
+/* Titre et description */
+.title-participer {
+  color: #e9e5d9;
+  margin: 0 15px;
+  font-family: "meno-banner-condensed", serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 4rem;
+  letter-spacing: -0.03em;
+  line-height: 1.3em;
+}
+
+.description-participer {
+  font-size: 1.2rem;
+  color: #adadac;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-family: "lft-etica-mono", sans-serif;
+  font-weight: 200;
+}
+
+/* Conteneur du formulaire */
+.postcard-container {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 100%; /* Prend toute la largeur disponible */
+}
+
+/* Formulaire principal */
+.postcard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Colonnes */
+.form-columns {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.left-column,
+.right-column {
+  width: 45%; /* Chaque colonne occupe 45% de la largeur */
+}
+
+/* Ligne de séparation */
+.separator {
+  width: 1px;
+  background-color: #ccc;
+  height: auto;
+}
+
+/* Colonne gauche : Message */
+.left-column h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.message-textarea {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: none;
+  font-size: 0.9rem;
+  font-family: "Arial", sans-serif;
+}
+
+/* Colonne droite : Adresse */
+.right-column h3 {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+.instructions {
+  font-size: 0.8rem;
+  color: #555;
+  text-align: center;
+}
+
+.address-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.address-input {
+  width: 95%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+/* Bouton de soumission */
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  background-color: #2e302a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #444;
+}

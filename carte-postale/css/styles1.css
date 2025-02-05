@@ -1,0 +1,1126 @@
+@import url("https://use.typekit.net/qfm7jsd.css"); /*cubano,lft-etica-mono,meno-banner*/
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container chính */
+
+header {
+  background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4) 20%,
+      rgba(0, 0, 0, 0.8) 80%
+    ),
+    url("https://res.cloudinary.com/da9k32mdb/image/upload/v1738749633/media/images/gplrlbgu6hezgaof9vro.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header-container {
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Văn bản giới thiệu */
+.intro-text-header {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  max-width: 500px;
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  font-weight: 600;
+  color: #2e302a;
+  font-family: "meno-banner", serif;
+  font-style: normal;
+  text-decoration: inherit;
+  letter-spacing: -0.03em;
+  line-height: 1.3em;
+}
+
+/* Khi hộp thư mở, ẩn đoạn giới thiệu */
+.intro-text-header.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5) 20%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none; /* Không ảnh hưởng đến click */
+}
+
+.mailbox-container {
+  background: none !important; /* Xóa hoàn toàn nền */
+}
+/* Hộp thư lúc đầu mờ và nhỏ */
+.mailbox {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Khi hiệu ứng chạy, hộp thư sáng lên */
+.mailbox.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mailbox img {
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Khi mở hộp thư */
+.mailbox.open img {
+  transform: rotateX(20deg);
+}
+
+/* Bưu thiếp */
+.postcards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  position: relative;
+  margin-top: 20px;
+}
+
+.postcard {
+  position: relative;
+  top: -150px;
+  transition: top 1s ease-in-out, opacity 0.8s ease-in-out,
+    transform 0.8s ease-in-out;
+  opacity: 0;
+  width: 150px;
+}
+
+.postcard img {
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Khi rê chuột, bưu thiếp bay lên nhẹ */
+.postcard:hover {
+  transform: translateY(-10px);
+}
+/* Khi bưu thiếp đầu tiên được nhấp, nó sẽ bay lên và xoay */
+.postcard.fly-away {
+  animation: flyAway 1.5s ease-in-out forwards;
+}
+
+/* Hiệu ứng bưu thiếp bay lên, xoay tròn rồi biến mất */
+@keyframes flyAway {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) rotate(15deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* Ajustement du tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 120%; /* Augmenter légèrement l'écart avec la carte */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Faire apparaître le tooltip au survol */
+.postcard:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px); /* Effet de montée */
+}
+
+/* Khu vực câu chuyện */
+.story-section {
+  padding: 50px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  background: url("https://res.cloudinary.com/da9k32mdb/image/upload/v1738749651/media/images/jvf2qnlefrphptb3mghf.jpg"); /* Đường dẫn hình nền */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Hiệu ứng parallax */
+}
+.story-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: "meno-banner", serif;
+}
+
+/* Khi cuộn đến, câu chuyện xuất hiện */
+.story-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bức thư */
+.letter-container {
+  position: relative;
+  width: 500px;
+  margin: 30px auto;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Khi cuộn đến, bức thư xuất hiện */
+.letter-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hình ảnh bức thư */
+.letter-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Văn bản trong bức thư (hiệu ứng gõ chữ) */
+.letter-text {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  white-space: pre-wrap; /* Cho phép xuống dòng */
+  overflow: hidden;
+  line-height: 1.2; /* Giảm khoảng cách giữa các dòng */
+  letter-spacing: 0.5px; /* Giảm khoảng cách giữa các chữ */
+  border-right: 1px solid rgba(0, 0, 0, 0.6); /* Thu gọn và làm mờ nhẹ đường kẻ */
+  display: inline-block;
+  text-align: left;
+}
+
+
+/* Nút xem bản gốc (ẩn ban đầu) */
+.view-original-btn {
+  display: none;
+  margin-top: 20px;
+  padding: 20px 35px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.view-original-btn:hover {
+  background: #555;
+}
+
+/* Bản gốc của bức thư (ẩn ban đầu) */
+.original-letter {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.original-letter img {
+  width: 1000px;
+  border-radius: 5px;
+}
+
+/* Nút đóng bản gốc */
+.close-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+/* Section Introduction : Prend 100% de la largeur */
+.section-intro {
+  width: 100%;
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; /* Couleur de fond optionnelle */
+}
+
+/* Conteneur des images */
+.image-container {
+  position: relative;
+  width: 100%; /* Utilise toute la largeur disponible */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image de fond (Carte Postale) */
+.carte-postale {
+  width: 100%; /* Prend toute la largeur */
+  height: auto;
+  display: block;
+}
+
+/* Image superposée (Introduction) */
+.image-intro {
+  position: absolute;
+  top: 50%; /* Ajustez la position verticale */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Centre l'image superposée */
+  width: 50%; /* Ajustez la taille de l’image superposée */
+  height: auto;
+  z-index: 2; /* Assure que cette image est au-dessus */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .image-intro {
+    width: 80%; /* Augmente la taille sur mobile */
+    padding: 15px;
+  }
+}
+/* Animation cachée au départ */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* Lorsque l'élément est visible */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Style de superposition du texte */
+.expo-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Ajout d'un overlay noir sur l'image */
+.expo-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Opacité réglable */
+  z-index: 1; /* Place l'overlay au-dessus de l'image mais sous le texte */
+}
+
+/* Image en fond */
+.expo-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Texte par-dessus l’image */
+.expo-text {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  font-size: 25px;
+  z-index: 2; /* Place le texte au-dessus de l'overlay */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Section principale */
+.third-section {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Conteneur divisé en deux colonnes */
+.third-container {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+}
+
+/* Colonne gauche : Texte */
+.third-text-container {
+  flex: 1; /* Prend 50% de la largeur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8; /* Couleur de fond */
+}
+
+/* Style du texte */
+.third-text {
+  max-width: 500px;
+  font-size: 1.3rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+.third-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+.third-text p {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+/* Colonne droite : Image pleine hauteur */
+.third-image-container {
+  flex: 1; /* Prend 50% de la largeur */
+  height: 100%;
+  overflow: hidden; /* Cache les débordements */
+}
+
+.third-image {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover; /* Assure que l'image couvre toute la colonne */
+}
+
+/* Effet d'apparition fluide du texte */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Conteneur principal */
+.expo-container3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  background-color: #171106;
+}
+
+/* Galerie d’exposition */
+.expo-gallery3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  position: relative;
+}
+
+/* Élément d'exposition (image + texte) */
+.expo-item3 {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Image avec un effet de transition */
+.expo-image3 {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Superposition d'un fond sombre sur l'image */
+.expo-item3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Opacité réglable */
+  z-index: 1;
+}
+
+/* Texte superposé sur l'image */
+.expo-text3 {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 10px;
+  font-size: 25px;
+  z-index: 2;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease-in-out;
+}
+.expo-text4 {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 10px;
+  font-size: 25px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Effet d'apparition du texte et zoom de l'image au survol */
+.expo-item3:hover .expo-text {
+  opacity: 1;
+}
+
+.expo-item3:hover .expo-image {
+  transform: scale(1.1); /* Zoom léger */
+}
+
+/* Animation lors du scroll (liée à votre JavaScript existant) */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section principale avec un fond en image */
+.background-section {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Image en arrière-plan */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://res.cloudinary.com/da9k32mdb/image/upload/v1738749634/media/images/mbicoohptrurhsx2myjn.jpg"); /* Changez avec votre image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Effet parallaxe */
+  z-index: -2; /* Place l’image en arrière-plan */
+}
+
+/* Carré noir semi-transparent superposé */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Noir semi-transparent */
+  z-index: -1; /* Place l’overlay au-dessus de l’image mais sous les autres éléments */
+}
+
+/* Conteneur des images superposées */
+.image-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cadre autour des images */
+.frame {
+  position: relative;
+  width: 450px; /* Taille des images */
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Effet de zoom léger au survol */
+.frame:hover {
+  transform: scale(1.05);
+}
+
+/* Images */
+.frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Étiquette inclinée sur l’image */
+.frame-label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: black;
+  color: white;
+  padding: 25px 60px;
+  font-size: 50px;
+  transform: rotate(-10deg);
+}
+
+/* Boutons de scroll */
+.scroll-button {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* Bouton gauche */
+.left-button {
+  left: 20px;
+}
+
+/* Bouton droit */
+.right-button {
+  right: 20px;
+}
+
+/* Effet de survol */
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Conteneur principal avec image de fond */
+.enveloppe-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://res.cloudinary.com/da9k32mdb/image/upload/v1738749658/media/images/yooyxf6wiba954ajx8kl.png"); /* Changez avec votre image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Effet parallaxe */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Carré noir semi-transparent */
+.enveloppe-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Opacité réglable */
+  z-index: 0;
+}
+
+/* Style des enveloppes */
+.enveloppe {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.enveloppe:hover {
+  transform: scale(1.1);
+}
+
+/* Fenêtre modale */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenu de la modale */
+.modal-content {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+  position: relative;
+}
+
+/* Image affichée dans la modale */
+#modal-image {
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton de fermeture */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Conteneur principal */
+.background-section-toguo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://res.cloudinary.com/da9k32mdb/image/upload/v1738749634/media/images/iuquuaux5fhueuqpocpk.png"); /* Changez avec votre image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+/* Overlay noir pour améliorer la visibilité */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajuster l’opacité si nécessaire */
+  z-index: 0;
+}
+
+/* Conteneur des images de Toguo */
+.toguo-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style des images aléatoires */
+.toguo-image {
+  position: absolute;
+  width: 500px; /* Taille des images */
+  height: auto;
+  opacity: 0.9;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.toguo-image:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+/* Dernière section */
+.final-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #2e302a;
+  /* background-image: url("../images/toguo3.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; */
+}
+
+/* Overlay noir semi-transparent */
+.final-section .background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Contenu de la section */
+.final-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  padding: 20px;
+  color: white;
+}
+
+/* Titre de la section */
+.final-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Texte explicatif */
+.final-text {
+  font-size: 25px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Bouton d'action */
+.final-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  background: #d72638;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+.final-button:hover {
+  background: #a61b2a;
+}
+
+/* Gate */
+.gate-section {
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #171106;
+}
+.gate-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.gate {
+  width: 45%;
+  height: 100%;
+  background: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749657/media/images/intvvzmfudwd6heg51am.jpg') no-repeat center center;
+  background-size: cover;
+  transform: rotateY(0deg);
+  transition: transform 5s ease-out;
+}
+.gate.left {
+  transform-origin: left;
+}
+.gate.right {
+  transform-origin: right;
+}
+.container-sign {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 50%;
+}
+.sign {
+  font-size: 1.5rem;
+  font-family: "meno-banner", serif;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 5s ease-in-out;
+  color: #f5f5f5;
+
+}
+/* Khi cửa mở, hiển thị bảng */
+.postcard-coloniale-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #171106;
+}
+.postcard-coloniale-container {
+  position: relative;
+  width: 900px;
+  height: 650px;
+  perspective: 1000px;
+}
+.postcard-coloniale {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+.postcard-front, .postcard-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.postcard-front {
+  background: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749658/media/images/vtzbuyp0ib1m1piygfpo.jpg') no-repeat center center;
+  background-size: cover;
+}
+.postcard-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'meno-banner', serif;
+  font-weight: 300;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.flipped .postcard-back {
+  opacity: 1;
+}
+.postcard-message {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #3e2723;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.postcard-back:hover .postcard-message {
+  opacity: 1;
+}
+
+/*map*/
+
+.map-expo-section {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: #2a1f0f;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  justify-content: center;
+  align-items: center;  
+  font-family: "meno-banner", serif;
+}
+.map-container {
+  position: relative;
+  width: 70%;
+  height: 90vh;
+  margin: 20px auto;
+  background: url('https://res.cloudinary.com/da9k32mdb/image/upload/v1738749638/media/images/vrfeuhx42qxz15nwocsb.jpg') no-repeat center center;
+  background-size: cover;
+}
+.map-region {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgb(43, 27, 4);
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+.map-region:hover {
+  transform: scale(1.2);
+  background-color: rgba(69, 36, 2, 0.6);
+}
+.tool-tip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: none;
+}
+.selection-message {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.details-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #3e2d16;
+  border-radius: 10px;
+  display: none;
+}
+.map-region {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(8, 4, 0, 0.3);
+  border: 2px solid rgb(59, 30, 4);
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  font-family: "meno-banner", serif;
+}
+.map-region:hover {
+  transform: scale(1.2);
+  background-color: rgba(201, 120, 14, 0.6);
+}
+.section {
+  display: none;
+  padding: 50px;
+  border-radius: 10px;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: "meno-banner", serif;
+}
+.section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.postcard-detail{
+  width: 600px;
+  height: 400px;
+  margin: 10px;
+  display: inline-block;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.postcard-detail-verticale{
+  width: 250px;
+  height: 400px;
+  margin: 10px;
+  display: inline-block;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
